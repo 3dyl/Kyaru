@@ -1,15 +1,16 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
-require('dotenv').config();
+import  {REST} from '@discordjs/rest';
+import{ Routes } from 'discord-api-types/v9';
+import 'dotenv/config'
 
 const k=process.env;
 
 
 const commands = [
-	new SlashCommandBuilder().setName('ping').setDescription('a ver uwu!'),
-]
-	.map(command => command.toJSON());
+    {
+        name: 'ping',
+        description: 'Responde con pong!'
+    }
+];
 
 const rest = new REST({ version: '9' }).setToken(k.DiscordToken);
 
